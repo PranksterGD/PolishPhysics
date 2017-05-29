@@ -9,7 +9,7 @@ Vector3::Vector3() :
 
 }
 
-Vector3::Vector3(precision x, precision y, precision z) :
+Vector3::Vector3(Precision x, Precision y, Precision z) :
 	X(x), Y(y), Z(z)
 {
 
@@ -74,19 +74,19 @@ void Vector3::Invert()
 	Z = -Z;
 }
 
-precision Vector3::Magnitude() const
+Precision Vector3::Magnitude() const
 {
-	return static_cast<precision> (sqrt(X*X + Y*Y + Z*Z));
+	return static_cast<Precision> (sqrt(X*X + Y*Y + Z*Z));
 }
 
-precision Vector3::SquareMagnitude() const
+Precision Vector3::SquareMagnitude() const
 {
 	return X*X + Y*Y + Z*Z;
 }
 
 void Vector3::Normalize()
 {
-	precision magnitude = Magnitude();
+	Precision magnitude = Magnitude();
 
 	if (magnitude > 0)
 	{
@@ -94,14 +94,14 @@ void Vector3::Normalize()
 	}
 }
 
-void Vector3::operator*=(precision scalar)
+void Vector3::operator*=(Precision scalar)
 {
 	X *= scalar;
 	Y *= scalar;
 	Z *= scalar;
 }
 
-Vector3 Vector3::operator*(precision scalar) const
+Vector3 Vector3::operator*(Precision scalar) const
 {
 	return Vector3(X*scalar, Y*scalar, Z*scalar);
 }
@@ -130,7 +130,7 @@ Vector3 Vector3::operator-(const Vector3& other) const
 	return Vector3(X - other.X, Y - other.Y, Z - other.Z);
 }
 
-void Vector3::AddScaledVector(const Vector3& other, precision scale)
+void Vector3::AddScaledVector(const Vector3& other, Precision scale)
 {
 	X += other.X * scale;
 	Y += other.Y * scale;
@@ -149,7 +149,7 @@ Vector3 Vector3::ComponentProduct(const Vector3& other) const
 	return Vector3(X * other.X, Y * other.Y, Z * other.Z);
 }
 
-precision Vector3::ScalarProduct(const Vector3& other) const
+Precision Vector3::ScalarProduct(const Vector3& other) const
 {
 	return X * other.X + Y * other.Y + Z * other.Z;
 }
@@ -164,4 +164,26 @@ Vector3 Vector3::VectorProduct(const Vector3& other) const
 void Vector3::VectorProductAssignment(const Vector3& other)
 {
 	*this = VectorProduct(other);
+}
+
+bool Vector3::MakeOrthonormalBasis(Vector3& a, Vector3& b, Vector3& c)
+{
+	bool success = false;
+
+	a.Normalize();
+	c = a.VectorProduct(b);
+
+	if (c.SquareMagnitude() != 0.0)
+	{
+		c.Normalize();
+		b = c.VectorProduct(a);
+		success = true;
+	}
+
+	return success;
+}
+
+Vector3 Vector3::ZeroVector()
+{
+	return Vector3(0.0f, 0.0f, 0.0f);
 }

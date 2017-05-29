@@ -8,18 +8,18 @@ namespace PolishPhysics
 	public:
 
 		/**Value along the x axis. */
-		precision X;
+		Precision X;
 
 		/**Value along the y axis. */
-		precision Y;
+		Precision Y;
 
 		/**Value along the z- axis. */
-		precision Z;
+		Precision Z;
 
 	private:
 
 		/**Padding to ensure 4 word alignment. */
-		precision mPad;
+		Precision mPad;
 
 	public:
 		/**Default constructor for the vector that assigns X, Y and Z to zero. */
@@ -29,7 +29,7 @@ namespace PolishPhysics
 		*@param x- The X Value.
 		*@param y- The Y Value. 
 		*@param z- The Z Value. */
-		Vector3(precision x, precision y, precision z);
+		Vector3(Precision x, Precision y, Precision z);
 
 		/**Copy constructor for the vector.
 		* @param other- The other vector to be copied from. */
@@ -62,22 +62,22 @@ namespace PolishPhysics
 
 		/**Function that returns the magnitude of the vector.
 		* @return - A precision that is the magnitude of the vector*/
-		precision Magnitude() const;
+		Precision Magnitude() const;
 
 		/**Function that returns the squared magnitude of the vector.
 		* @return - A precision that is the squared magnitude of the vector*/
-		precision SquareMagnitude() const;
+		Precision SquareMagnitude() const;
 
 		void Normalize();
 
 		/**Multiplies the vector by the given scalar.
 		* @param scalar - The scalar to be multiplied by.*/
-		void operator*=(precision scalar);
+		void operator*=(Precision scalar);
 
 		/**Returns a copy of the vector, multiplied by the given scalar.
 		* @param scalar - The scalar to be multiplied by.
 		* @return - A copy of the vector after multiplication.*/
-		Vector3 operator*(precision scalar) const;
+		Vector3 operator*(Precision scalar) const;
 
 		/**Adds the vector by another vector.
 		* @param other - The vector to be added by.*/
@@ -100,7 +100,7 @@ namespace PolishPhysics
 		/**Adds the vector by another vector, multiplied by a scale.
 		* @param other - The vector to be added by.
 		* @param scale - The scale by which the other vector should be multipled by.*/
-		void AddScaledVector(const Vector3& other, precision scale);
+		void AddScaledVector(const Vector3& other, Precision scale);
 
 		/**Function that multiples each component of the vector by the corresponding
 		components of the other vector.
@@ -116,7 +116,7 @@ namespace PolishPhysics
 		/**Function that returns the scalar product of the vector with the other vector.
 		* @param other - The other vector.
 		* @return - A precision that represents the dot product.*/
-		precision ScalarProduct(const Vector3& other) const;
+		Precision ScalarProduct(const Vector3& other) const;
 
 		/**Function that returns the vector product of the vector with the other vector.
 		* @param other - The other vector.
@@ -127,5 +127,9 @@ namespace PolishPhysics
 		the other vector.
 		* @param other - The vector to be subtracted by.*/
 		void VectorProductAssignment(const Vector3& other);
+
+		bool MakeOrthonormalBasis(Vector3& a, Vector3& b, Vector3& c);
+
+		static Vector3 ZeroVector();
 	};
 }
