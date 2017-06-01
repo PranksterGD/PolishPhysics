@@ -39,7 +39,7 @@ namespace PolishPhysics
 
 		/**Function used to set the position of the particle.
 		* @param position- The new position of the particle.*/
-		void SetPosition(Vector3 position);
+		void SetPosition(const Vector3& position);
 
 		/**Function that returns the position of the particle.
 		* @return - A vector3 that is the position of the particle.*/
@@ -47,7 +47,7 @@ namespace PolishPhysics
 
 		/**Function used to set the position of the particle.
 		* @param position- The new position of the particle.*/
-		void SetVelocity(Vector3 velocity) ;
+		void SetVelocity(const Vector3& velocity) ;
 
 		/**Function that returns the velocity of the particle.
 		* @return - A vector3 that is the velocity of the particle.*/
@@ -55,7 +55,7 @@ namespace PolishPhysics
 
 		/**Function used to set the velocity of the particle.
 		* @param velocity- The new velocity of the particle.*/
-		void SetAcceleration(Vector3 acceleration);
+		void SetAcceleration(const Vector3& acceleration);
 
 		/**Function that returns the acceleration of the particle.
 		* @return - A vector3 that is the acceleration of the particle.*/
@@ -88,6 +88,10 @@ namespace PolishPhysics
 		/**Updates the particle forward in time by the given amount. */
 		void Integrate(Precision deltaTime);
 
+		/**Function that adds a force to the accumumator.
+		* @param force - The force to be added.*/
+		void AddForce(const Vector3& force);
+
 	protected:
 
 		/**Holds the linear position in world space. */
@@ -104,5 +108,11 @@ namespace PolishPhysics
 
 		/**Holds the inverse of the mass of the particle. */
 		Precision mInverseMass;
+
+		/** *Holds the accumulated force to be applied at the start of the next frame. */
+		Vector3 mAccumulatedForce;
+
+		/**Function that clears the accumulator */
+		void ClearAccumulator();
 	};
 }

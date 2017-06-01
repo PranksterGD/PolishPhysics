@@ -68,6 +68,7 @@ namespace PolishPhysics
 		* @return - A precision that is the squared magnitude of the vector*/
 		Precision SquareMagnitude() const;
 
+		/**Function that normalizes the vector. */
 		void Normalize();
 
 		/**Multiplies the vector by the given scalar.
@@ -128,7 +129,10 @@ namespace PolishPhysics
 		* @param other - The vector to be subtracted by.*/
 		void VectorProductAssignment(const Vector3& other);
 
-		bool MakeOrthonormalBasis(Vector3& a, Vector3& b, Vector3& c);
+		/**Function that zeroes out the vector. */
+		void Clear();
+
+		static bool MakeOrthonormalBasis(Vector3& a, Vector3& b, Vector3& c);
 
 		static Vector3 ZeroVector();
 	};

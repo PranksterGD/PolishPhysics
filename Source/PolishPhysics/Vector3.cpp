@@ -90,7 +90,9 @@ void Vector3::Normalize()
 
 	if (magnitude > 0)
 	{
-		*this *= (1 / magnitude);
+		X /= magnitude;
+		Y /= magnitude;
+		Z /= magnitude;
 	}
 }
 
@@ -164,6 +166,11 @@ Vector3 Vector3::VectorProduct(const Vector3& other) const
 void Vector3::VectorProductAssignment(const Vector3& other)
 {
 	*this = VectorProduct(other);
+}
+
+void Vector3::Clear()
+{
+	*this = ZeroVector();
 }
 
 bool Vector3::MakeOrthonormalBasis(Vector3& a, Vector3& b, Vector3& c)

@@ -67,7 +67,7 @@ bool Particle::operator!=(const Particle& other) const
 	return !(*this == other);
 }
 
-void Particle::SetPosition(Vector3 position)
+void Particle::SetPosition(const Vector3& position)
 {
 	mPosition = position;
 }
@@ -77,7 +77,7 @@ Vector3 Particle::GetPosition() const
 	return mPosition;
 }
 
-void Particle::SetVelocity(Vector3 velocity)
+void Particle::SetVelocity(const Vector3& velocity)
 {
 	mVelocity = velocity;
 }
@@ -87,7 +87,7 @@ Vector3 Particle::GetVelocity() const
 	return mVelocity;
 }
 
-void Particle::SetAcceleration(Vector3 acceleration)
+void Particle::SetAcceleration(const Vector3& acceleration)
 {
 	mAcceleration = acceleration;
 }
@@ -146,12 +146,22 @@ void Particle::Integrate(Precision deltaTime)
 
 		//Calculate acceleration from force- TODO
 		Vector3 newAcceleration = mAcceleration;
+		newAcceleration.AddScaledVector(mAccumulatedForce, mInverseMass);
 
 		mVelocity.AddScaledVector(newAcceleration, deltaTime);
 
 		mVelocity *= precision_pow(mDamping, deltaTime);
 
-		//Clear all forces - TODO
-		//ClearAccumulator();
+		ClearAccumulator();
 	}
+}
+
+void Particle::AddForce(const Vector3& force)
+{
+	mAccumulatedForce += force;
+}
+
+void Particle::ClearAccumulator()
+{
+	mAccumulatedForce.Clear();
 }
