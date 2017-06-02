@@ -7,4 +7,6 @@ namespace PolishPhysics
 	typedef float Precision;
 
 #define precision_pow powf
+
+#define precision_abs fabsf
 }

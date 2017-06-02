@@ -4,7 +4,7 @@ using namespace PolishPhysics;
 
 Particle::Particle() :
 	mPosition(Vector3::ZeroVector()), mVelocity(Vector3::ZeroVector()), mAcceleration(Vector3::ZeroVector()),
-	mDamping(0.999f), mInverseMass(0.0f)
+	mDamping(0.999f), mInverseMass(0.0f), mGravity(Vector3(0,-10,0))
 {
 
 }
@@ -134,6 +134,16 @@ Precision Particle::GetInverseMass() const
 	return mInverseMass;
 }
 
+void Particle::SetGravity(const Vector3 gravity)
+{
+	mGravity = gravity;
+}
+
+Vector3 Particle::GetGravity() const
+{
+	return mGravity;
+}
+
 void Particle::Integrate(Precision deltaTime)
 {
 	//Don't update if infinite mass.
@@ -148,6 +158,8 @@ void Particle::Integrate(Precision deltaTime)
 		Vector3 newAcceleration = mAcceleration;
 		newAcceleration.AddScaledVector(mAccumulatedForce, mInverseMass);
 
+		newAcceleration += mGravity;
+
 		mVelocity.AddScaledVector(newAcceleration, deltaTime);
 
 		mVelocity *= precision_pow(mDamping, deltaTime);
@@ -159,6 +171,11 @@ void Particle::Integrate(Precision deltaTime)
 void Particle::AddForce(const Vector3& force)
 {
 	mAccumulatedForce += force;
+}
+
+bool Particle::HasInfiniteMass() const
+{
+	return mInverseMass == 0;
 }
 
 void Particle::ClearAccumulator()

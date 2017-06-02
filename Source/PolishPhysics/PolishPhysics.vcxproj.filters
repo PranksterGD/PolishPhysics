@@ -13,6 +13,12 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Header Files\ForceGenerators">
+      <UniqueIdentifier>{d71ab4df-ab93-4993-bb7e-5e5ab8ac88a0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ForceGenerators">
+      <UniqueIdentifier>{c19c4040-84e3-4329-a7a6-25080c00744c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Vector3.h">
@@ -30,6 +36,24 @@
     <ClInclude Include="Projectile.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="ParticleDragForceGenerator.h">
+      <Filter>Header Files\ForceGenerators</Filter>
+    </ClInclude>
+    <ClInclude Include="ParticleForceGenerator.h">
+      <Filter>Header Files\ForceGenerators</Filter>
+    </ClInclude>
+    <ClInclude Include="ParticleForceRegistry.h">
+      <Filter>Header Files\ForceGenerators</Filter>
+    </ClInclude>
+    <ClInclude Include="ParticleGravityForceGenerator.h">
+      <Filter>Header Files\ForceGenerators</Filter>
+    </ClInclude>
+    <ClInclude Include="ParticleSpringForceGenerator.h">
+      <Filter>Header Files\ForceGenerators</Filter>
+    </ClInclude>
+    <ClInclude Include="ParticleAnchoredSpringForceGenerator.h">
+      <Filter>Header Files\ForceGenerators</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
@@ -43,6 +67,21 @@
     </ClCompile>
     <ClCompile Include="Projectile.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ParticleDragForceGenerator.cpp">
+      <Filter>Source Files\ForceGenerators</Filter>
+    </ClCompile>
+    <ClCompile Include="ParticleForceRegistry.cpp">
+      <Filter>Source Files\ForceGenerators</Filter>
+    </ClCompile>
+    <ClCompile Include="ParticleGravityForceGenerator.cpp">
+      <Filter>Source Files\ForceGenerators</Filter>
+    </ClCompile>
+    <ClCompile Include="ParticleSpringForceGenerator.cpp">
+      <Filter>Source Files\ForceGenerators</Filter>
+    </ClCompile>
+    <ClCompile Include="ParticleAnchoredSpringForceGenerator.cpp">
+      <Filter>Source Files\ForceGenerators</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

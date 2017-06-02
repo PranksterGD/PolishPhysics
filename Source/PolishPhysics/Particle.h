@@ -53,8 +53,8 @@ namespace PolishPhysics
 		* @return - A vector3 that is the velocity of the particle.*/
 		Vector3 GetVelocity() const;
 
-		/**Function used to set the velocity of the particle.
-		* @param velocity- The new velocity of the particle.*/
+		/**Function used to set the acceleration of the particle.
+		* @param velocity- The new acceleration of the particle.*/
 		void SetAcceleration(const Vector3& acceleration);
 
 		/**Function that returns the acceleration of the particle.
@@ -85,12 +85,24 @@ namespace PolishPhysics
 		* @return - A Precision that is the inversemass of the particle.*/
 		Precision GetInverseMass() const;
 
+		/**Function used to set the gravity of the particle.
+		* @param velocity- The new gravity of the particle.*/
+		void SetGravity(const Vector3 gravity);
+
+		/**Function that returns the gravity of the particle.
+		* @return - A vector3 that is the gravity of the particle.*/
+		Vector3 GetGravity() const;
+
 		/**Updates the particle forward in time by the given amount. */
 		void Integrate(Precision deltaTime);
 
-		/**Function that adds a force to the accumumator.
+		/**Function that adds a force to the accumulator.
 		* @param force - The force to be added.*/
 		void AddForce(const Vector3& force);
+
+		/**Function that checks if the particle has infinite mass.
+		* @return - A boolean -True if the particle has infinite mass, false otherwise.*/
+		bool HasInfiniteMass() const;
 
 	protected:
 
@@ -111,6 +123,9 @@ namespace PolishPhysics
 
 		/** *Holds the accumulated force to be applied at the start of the next frame. */
 		Vector3 mAccumulatedForce;
+
+		/**Holds Acceleration of gravity on the particle. */
+		Vector3 mGravity;
 
 		/**Function that clears the accumulator */
 		void ClearAccumulator();
