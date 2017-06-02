@@ -3,6 +3,8 @@
 #include "Vector3.h"
 namespace PolishPhysics
 {
+	/**A force generator that applies a gravitational force in the -Y direction.
+	One instance can be used for multiple particles that are expected to behave the same way to gravity.*/
 	class ParticleGravityForceGenerator : public ParticleForceGenerator
 	{
 	private:
@@ -12,6 +14,7 @@ namespace PolishPhysics
 
 	public:
 
+		/**Creates a new generator with the given parameters. */
 		ParticleGravityForceGenerator(const Vector3& gravity);
 
 		virtual void UpdateForce(class Particle& particle, Precision deltaTime);

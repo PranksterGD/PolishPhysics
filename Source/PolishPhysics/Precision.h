@@ -9,4 +9,14 @@ namespace PolishPhysics
 #define precision_pow powf
 
 #define precision_abs fabsf
+
+#define precision_sin sinf
+
+#define precision_cos cosf
+
+#define precision_exp expf
+
+#define precision_sqrt sqrtf
+
+#define UNREFERENCED_PARAMETER(P) (P)
 }

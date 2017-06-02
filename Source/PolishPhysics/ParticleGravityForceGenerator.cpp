@@ -11,6 +11,8 @@ ParticleGravityForceGenerator::ParticleGravityForceGenerator(const Vector3& grav
 
 void ParticleGravityForceGenerator::UpdateForce(class Particle& particle, Precision deltaTime)
 {
+	UNREFERENCED_PARAMETER(deltaTime);
+
 	if (!particle.HasInfiniteMass())
 	{
 		particle.AddForce(mGravity* particle.GetInverseMass());

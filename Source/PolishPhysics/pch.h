@@ -17,3 +17,7 @@
 #include "ParticleDragForceGenerator.h"
 #include "ParticleSpringForceGenerator.h"
 #include "ParticleAnchoredSpringForceGenerator.h"
+#include "ParticleBungeeForceGenerator.h"
+#include "ParticleAnchoredBungeeForceGenerator.h"
+#include "ParticleBuoyancyForceGenerator.h"
+#include "ParticleStiffSpringForceGenerator.h"

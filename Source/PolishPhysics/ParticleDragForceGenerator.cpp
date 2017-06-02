@@ -11,6 +11,8 @@ ParticleDragForceGenerator::ParticleDragForceGenerator(Precision k1, Precision k
 
 void ParticleDragForceGenerator::UpdateForce(class Particle& particle, Precision deltaTime)
 {
+	UNREFERENCED_PARAMETER(deltaTime);
+
 	Vector3 force = particle.GetVelocity();
 
 	Precision dragCoeff = force.Magnitude();

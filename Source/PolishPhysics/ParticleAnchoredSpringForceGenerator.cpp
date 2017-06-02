@@ -3,7 +3,7 @@
 using namespace std;
 using namespace PolishPhysics;
 
-ParticleAnchoredSpringForceGenerator::ParticleAnchoredSpringForceGenerator(Vector3 anchor, Precision springConstant, Precision restLength) :
+ParticleAnchoredSpringForceGenerator::ParticleAnchoredSpringForceGenerator(const Vector3& anchor, Precision springConstant, Precision restLength) :
 	mAnchor(anchor), mSpringConstant(springConstant), mRestLength(restLength)
 {
 
@@ -11,6 +11,8 @@ ParticleAnchoredSpringForceGenerator::ParticleAnchoredSpringForceGenerator(Vecto
 
 void ParticleAnchoredSpringForceGenerator::UpdateForce(class Particle& particle, Precision deltaTime)
 {
+	UNREFERENCED_PARAMETER(deltaTime);
+
 	Vector3 force = particle.GetPosition();
 	force -= mAnchor;
 

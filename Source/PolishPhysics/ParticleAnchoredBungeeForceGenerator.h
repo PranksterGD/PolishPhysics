@@ -3,8 +3,9 @@
 #include "Vector3.h"
 namespace PolishPhysics
 {
-	/**A force generator that applies a spring force where one end is attached to a fixed point in space. */
-	class ParticleAnchoredSpringForceGenerator : public ParticleForceGenerator
+	/**A force generator that applies a spring force where one end is attached to a fixed point in space.
+	Only applies the force when extended.*/
+	class ParticleAnchoredBungeeForceGenerator : public ParticleForceGenerator
 	{
 	private:
 
@@ -18,9 +19,8 @@ namespace PolishPhysics
 		Precision mRestLength;
 
 	public:
-
 		/**Creates a new spring with the given parameters. */
-		ParticleAnchoredSpringForceGenerator(const Vector3& anchor, Precision springConstant, Precision restLength);
+		ParticleAnchoredBungeeForceGenerator(const Vector3& anchor, Precision springConstant, Precision restLength);
 
 		virtual void UpdateForce(class Particle& particle, Precision deltaTime);
 

@@ -54,6 +54,18 @@
     <ClInclude Include="ParticleAnchoredSpringForceGenerator.h">
       <Filter>Header Files\ForceGenerators</Filter>
     </ClInclude>
+    <ClInclude Include="ParticleBungeeForceGenerator.h">
+      <Filter>Header Files\ForceGenerators</Filter>
+    </ClInclude>
+    <ClInclude Include="ParticleAnchoredBungeeForceGenerator.h">
+      <Filter>Header Files\ForceGenerators</Filter>
+    </ClInclude>
+    <ClInclude Include="ParticleBuoyancyForceGenerator.h">
+      <Filter>Header Files\ForceGenerators</Filter>
+    </ClInclude>
+    <ClInclude Include="ParticleStiffSpringForceGenerator.h">
+      <Filter>Header Files\ForceGenerators</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
@@ -81,6 +93,15 @@
       <Filter>Source Files\ForceGenerators</Filter>
     </ClCompile>
     <ClCompile Include="ParticleAnchoredSpringForceGenerator.cpp">
+      <Filter>Source Files\ForceGenerators</Filter>
+    </ClCompile>
+    <ClCompile Include="ParticleBungeeForceGenerator.cpp">
+      <Filter>Source Files\ForceGenerators</Filter>
+    </ClCompile>
+    <ClCompile Include="ParticleAnchoredBungeeForceGenerator.cpp">
+      <Filter>Source Files\ForceGenerators</Filter>
+    </ClCompile>
+    <ClCompile Include="ParticleBuoyancyForceGenerator.cpp">
       <Filter>Source Files\ForceGenerators</Filter>
     </ClCompile>
   </ItemGroup>
