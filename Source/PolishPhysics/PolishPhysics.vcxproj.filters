@@ -66,6 +66,9 @@
     <ClInclude Include="ParticleStiffSpringForceGenerator.h">
       <Filter>Header Files\ForceGenerators</Filter>
     </ClInclude>
+    <ClInclude Include="ParticleContact.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
@@ -103,6 +106,12 @@
     </ClCompile>
     <ClCompile Include="ParticleBuoyancyForceGenerator.cpp">
       <Filter>Source Files\ForceGenerators</Filter>
+    </ClCompile>
+    <ClCompile Include="ParticleStiffSpringForceGenerator.cpp">
+      <Filter>Source Files\ForceGenerators</Filter>
+    </ClCompile>
+    <ClCompile Include="ParticleContact.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

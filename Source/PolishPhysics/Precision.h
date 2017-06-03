@@ -18,5 +18,7 @@ namespace PolishPhysics
 
 #define precision_sqrt sqrtf
 
+#define PRECISION_MAX FLT_MAX
+
 #define UNREFERENCED_PARAMETER(P) (P)
 }

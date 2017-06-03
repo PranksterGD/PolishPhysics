@@ -6,6 +6,8 @@ namespace PolishPhysics
 	/**Simplest object in the physics simulation- A point mass that has no rotation. */
 	class Particle
 	{
+		friend class ParticleWorld;
+
 	public:
 
 		/**Default constructor for the particle. */

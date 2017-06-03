@@ -15,6 +15,6 @@ void ParticleGravityForceGenerator::UpdateForce(class Particle& particle, Precis
 
 	if (!particle.HasInfiniteMass())
 	{
-		particle.AddForce(mGravity* particle.GetInverseMass());
+		particle.AddForce(mGravity * particle.GetMass());
 	}
 }
