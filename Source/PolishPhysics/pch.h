@@ -5,13 +5,18 @@
 #include <assert.h>
 
 //Local headers
-#include "Precision.h"
-#include "Vector3.h"
 #include "Particle.h"
 #include "Projectile.h"
 #include "ParticleContact.h"
 #include "ParticleContactResolver.h"
 #include "ParticleWorld.h"
+
+//Math
+#include "Precision.h"
+#include "Vector3.h"
+#include "Matrix3.h"
+#include "Matrix4.h"
+#include "Quaternion.h"
 
 //ForceGenerators
 #include "ParticleForceGenerator.h"

@@ -6,6 +6,7 @@ using namespace PolishPhysics;
 
 uint32_t ParticleCable::AddContact(class ParticleContact *contact, std::uint32_t limit) const
 {
+	UNREFERENCED_PARAMETER(limit);
 	Precision currentLength = GetCurrentLength();
 
 	uint32_t contactsCreated = 0;

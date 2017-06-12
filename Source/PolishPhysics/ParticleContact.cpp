@@ -37,7 +37,7 @@ void ParticleContact::ResolveVelocity(Precision deltaTime)
 
 		if (mParticles[1] != nullptr)
 		{
-			accCausedVelocity -= mParticles[1]->GetAcceleration;
+			accCausedVelocity -= mParticles[1]->GetAcceleration();
 		}
 
 		Precision accCausedSepVelocity = accCausedVelocity.ScalarProduct(mContactNormal) * deltaTime;

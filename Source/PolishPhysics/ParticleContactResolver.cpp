@@ -16,7 +16,7 @@ void ParticleContactResolver::SetMaxIterations(std::uint32_t iterations)
 
 Precision ParticleContactResolver::GetMaxIterations()
 {
-	return mIterations;
+	return static_cast<Precision> (mIterations);
 }
 
 void ParticleContactResolver::ResolveContacts(ParticleContact* contactArray, std::uint32_t numContacts, Precision deltaTime)
