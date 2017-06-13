@@ -13,9 +13,6 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Header Files\ForceGenerators">
-      <UniqueIdentifier>{d71ab4df-ab93-4993-bb7e-5e5ab8ac88a0}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\ForceGenerators">
       <UniqueIdentifier>{c19c4040-84e3-4329-a7a6-25080c00744c}</UniqueIdentifier>
     </Filter>
@@ -30,6 +27,15 @@
     </Filter>
     <Filter Include="Source Files\Math">
       <UniqueIdentifier>{c3f13234-ea29-462d-a83a-7eec1538da22}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\ParticleForceGenerators">
+      <UniqueIdentifier>{d71ab4df-ab93-4993-bb7e-5e5ab8ac88a0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\RigidBodyForceGenerators">
+      <UniqueIdentifier>{5ae77aa6-60b2-4c6d-b8b7-071f893a51bc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\RigidBodyForceGenerators">
+      <UniqueIdentifier>{4ed5b143-e7c6-4036-9c1d-658343efa3e2}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -46,34 +52,34 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="ParticleDragForceGenerator.h">
-      <Filter>Header Files\ForceGenerators</Filter>
+      <Filter>Header Files\ParticleForceGenerators</Filter>
     </ClInclude>
     <ClInclude Include="ParticleForceGenerator.h">
-      <Filter>Header Files\ForceGenerators</Filter>
+      <Filter>Header Files\ParticleForceGenerators</Filter>
     </ClInclude>
     <ClInclude Include="ParticleForceRegistry.h">
-      <Filter>Header Files\ForceGenerators</Filter>
+      <Filter>Header Files\ParticleForceGenerators</Filter>
     </ClInclude>
     <ClInclude Include="ParticleGravityForceGenerator.h">
-      <Filter>Header Files\ForceGenerators</Filter>
+      <Filter>Header Files\ParticleForceGenerators</Filter>
     </ClInclude>
     <ClInclude Include="ParticleSpringForceGenerator.h">
-      <Filter>Header Files\ForceGenerators</Filter>
+      <Filter>Header Files\ParticleForceGenerators</Filter>
     </ClInclude>
     <ClInclude Include="ParticleAnchoredSpringForceGenerator.h">
-      <Filter>Header Files\ForceGenerators</Filter>
+      <Filter>Header Files\ParticleForceGenerators</Filter>
     </ClInclude>
     <ClInclude Include="ParticleBungeeForceGenerator.h">
-      <Filter>Header Files\ForceGenerators</Filter>
+      <Filter>Header Files\ParticleForceGenerators</Filter>
     </ClInclude>
     <ClInclude Include="ParticleAnchoredBungeeForceGenerator.h">
-      <Filter>Header Files\ForceGenerators</Filter>
+      <Filter>Header Files\ParticleForceGenerators</Filter>
     </ClInclude>
     <ClInclude Include="ParticleBuoyancyForceGenerator.h">
-      <Filter>Header Files\ForceGenerators</Filter>
+      <Filter>Header Files\ParticleForceGenerators</Filter>
     </ClInclude>
     <ClInclude Include="ParticleStiffSpringForceGenerator.h">
-      <Filter>Header Files\ForceGenerators</Filter>
+      <Filter>Header Files\ParticleForceGenerators</Filter>
     </ClInclude>
     <ClInclude Include="ParticleContact.h">
       <Filter>Header Files</Filter>
@@ -107,6 +113,24 @@
     </ClInclude>
     <ClInclude Include="Quaternion.h">
       <Filter>Header Files\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="RigidBody.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RigidBodyForceGenerator.h">
+      <Filter>Header Files\RigidBodyForceGenerators</Filter>
+    </ClInclude>
+    <ClInclude Include="RigidyBodyGravityForceGenerator.h">
+      <Filter>Header Files\RigidBodyForceGenerators</Filter>
+    </ClInclude>
+    <ClInclude Include="RigidBodySpringForceGenerator.h">
+      <Filter>Header Files\RigidBodyForceGenerators</Filter>
+    </ClInclude>
+    <ClInclude Include="RigidBodyForceRegistry.h">
+      <Filter>Header Files\RigidBodyForceGenerators</Filter>
+    </ClInclude>
+    <ClInclude Include="RigidBodyWorld.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -161,9 +185,6 @@
     <ClCompile Include="ParticleRod.cpp">
       <Filter>Source Files\ContactGenerators</Filter>
     </ClCompile>
-    <ClCompile Include="ParticleWorld.cpp">
-      <Filter>Source Files\ContactGenerators</Filter>
-    </ClCompile>
     <ClCompile Include="Vector3.cpp">
       <Filter>Source Files\Math</Filter>
     </ClCompile>
@@ -175,6 +196,24 @@
     </ClCompile>
     <ClCompile Include="Quaternion.cpp">
       <Filter>Source Files\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="RigidBodyGravityForceGenerator.cpp">
+      <Filter>Source Files\RigidBodyForceGenerators</Filter>
+    </ClCompile>
+    <ClCompile Include="RigidyBodySpringForceGenerator.cpp">
+      <Filter>Source Files\RigidBodyForceGenerators</Filter>
+    </ClCompile>
+    <ClCompile Include="RigidyBody.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ParticleWorld.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="RigidBodyForceRegistry.cpp">
+      <Filter>Source Files\RigidBodyForceGenerators</Filter>
+    </ClCompile>
+    <ClCompile Include="RigidBodyWorld.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

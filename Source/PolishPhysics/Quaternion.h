@@ -8,7 +8,7 @@ namespace PolishPhysics
 	{
 	public:
 
-		union
+		union 
 		{
 			struct 
 			{

@@ -98,6 +98,6 @@ namespace PolishPhysics
 		* @return - The local coordinates vector.*/
 		Vector3 WorldToLocalDirection(const Vector3& world, const Matrix4& transform) const;
 
-		void SetOrientationAndPosition(const Quaternion& quaternion, const Vector3& position);
+		void SetOrientationAndPosition(const class Quaternion& quaternion, const Vector3& position);
 	};
 }
