@@ -56,7 +56,7 @@ void Update()
 
 	//body.AddForceAtPoint(Vector3(100.0f, 0.0f, 0.0f), Vector3(10.0f, 10.f, 10.0f));
 
-	body.SetRotation(Vector3(10.0f, 0.0f, 10.0f));
+	body.SetRotation(Vector3(0.0f, 0.0f, 10.0f));
 
 	world.Update((float)1 / 60);
 

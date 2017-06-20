@@ -42,3 +42,8 @@
 #include "ParticleLink.h"
 #include "ParticleCable.h"
 #include "ParticleRod.h"
+
+//Collision Detection
+#include "BoundingSphere.h"
+#include "BVHNode.h"
+#include "PotentialContact.h"

@@ -149,6 +149,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="BoundingSphere.h" />
+    <ClInclude Include="BVHNode.h" />
     <ClInclude Include="Matrix3.h" />
     <ClInclude Include="Matrix4.h" />
     <ClInclude Include="Particle.h" />
@@ -170,6 +172,7 @@
     <ClInclude Include="ParticleStiffSpringForceGenerator.h" />
     <ClInclude Include="ParticleWorld.h" />
     <ClInclude Include="pch.h" />
+    <ClInclude Include="PotentialContact.h" />
     <ClInclude Include="Precision.h" />
     <ClInclude Include="Projectile.h" />
     <ClInclude Include="Quaternion.h" />
@@ -182,6 +185,7 @@
     <ClInclude Include="Vector3.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="BoundingSphere.cpp" />
     <ClCompile Include="Matrix3.cpp" />
     <ClCompile Include="Matrix4.cpp" />
     <ClCompile Include="Particle.cpp" />
@@ -216,6 +220,7 @@
     <ClCompile Include="Vector3.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="BVHNode.inl" />
     <None Include="ClassDiagram.cd" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

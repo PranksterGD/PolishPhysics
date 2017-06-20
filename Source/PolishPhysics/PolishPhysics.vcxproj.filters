@@ -37,6 +37,12 @@
     <Filter Include="Source Files\RigidBodyForceGenerators">
       <UniqueIdentifier>{4ed5b143-e7c6-4036-9c1d-658343efa3e2}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Collision Detection">
+      <UniqueIdentifier>{774bfad7-a412-49da-a90c-99292e4c9d76}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Collision Detection">
+      <UniqueIdentifier>{2d4c001e-44dc-4a3e-aac9-6e9acbfd79fd}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Precision.h">
@@ -132,6 +138,15 @@
     <ClInclude Include="RigidBodyWorld.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="PotentialContact.h">
+      <Filter>Header Files\Collision Detection</Filter>
+    </ClInclude>
+    <ClInclude Include="BVHNode.h">
+      <Filter>Header Files\Collision Detection</Filter>
+    </ClInclude>
+    <ClInclude Include="BoundingSphere.h">
+      <Filter>Header Files\Collision Detection</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
@@ -215,8 +230,14 @@
     <ClCompile Include="RigidBodyWorld.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="BoundingSphere.cpp">
+      <Filter>Source Files\Math</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />
+    <None Include="BVHNode.inl">
+      <Filter>Source Files\Collision Detection</Filter>
+    </None>
   </ItemGroup>
 </Project>
