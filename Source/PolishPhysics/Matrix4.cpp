@@ -3,20 +3,11 @@
 using namespace std;
 using namespace PolishPhysics;
 
-Matrix4::Matrix4(Precision a, Precision b, Precision c, Precision d, Precision e, Precision f, Precision g, Precision h, Precision i, Precision j, Precision k, Precision l)
+Matrix4::Matrix4()
 {
-	mData[0] = a;
-	mData[1] = b;
-	mData[2] = c;
-	mData[3] = d;
-	mData[4] = e;
-	mData[5] = f;
-	mData[6] = g;
-	mData[7] = h;
-	mData[8] = i;
-	mData[9] = j;
-	mData[10] = k;
-	mData[11] = l;
+	mData[1] = mData[2] = mData[3] = mData[4] = mData[6] =
+		mData[7] = mData[8] = mData[9] = mData[11] = 0;
+	mData[0] = mData[5] = mData[10] = 1;
 }
 
 Vector3 Matrix4::operator*(const Vector3& vector) const
@@ -182,4 +173,9 @@ void Matrix4::SetOrientationAndPosition(const Quaternion& quaternion, const Vect
 	mData[9] = 2 * quaternion.j * quaternion.k - 2 * quaternion.i * quaternion.r;
 	mData[10] = 1 - (2 * quaternion.i * quaternion.i + 2 * quaternion.j * quaternion.j);
 	mData[11] = position.Z;
+}
+
+Vector3 Matrix4::GetAxisVector(std::int32_t i) const
+{
+	return Vector3(mData[i], mData[i + 4], mData[i + 8]);
 }

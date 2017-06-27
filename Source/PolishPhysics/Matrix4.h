@@ -12,9 +12,7 @@ namespace PolishPhysics
 	{
 	public:
 
-		Matrix4(Precision a = 0, Precision b = 0, Precision c = 0, Precision d = 0, Precision e = 0,
-			Precision f = 0, Precision g = 0, Precision h = 0, Precision i = 0, Precision j = 0,
-			Precision k = 0, Precision l = 0);
+		Matrix4();
 
 		/**Holds the tensor matrix data in array form. */
 		Precision mData[12];
@@ -99,5 +97,11 @@ namespace PolishPhysics
 		Vector3 WorldToLocalDirection(const Vector3& world, const Matrix4& transform) const;
 
 		void SetOrientationAndPosition(const class Quaternion& quaternion, const Vector3& position);
+
+		/** Gets a vector representing one axis (i.e. one column) in the matrix.
+		* @param i The row to return. Row 3 corresponds to the position of the transform matrix.
+		* @return The vector. */
+		Vector3 GetAxisVector(std::int32_t i) const;
+
 	};
 }

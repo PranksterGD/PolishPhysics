@@ -16,6 +16,37 @@ RigidBodyWorld world;
 
 RigidBody body(0.0f);
 
+void ProcessSpecialKeys(int key, int x, int y)
+{
+	switch (key)
+	{
+	case  GLUT_KEY_UP:
+		body.SetRotation(Vector3(0.0f, 10.0f, 0.0f));
+		break;
+
+	case GLUT_KEY_DOWN:
+		body.SetRotation(Vector3(0.0f, -10.0f, 0.0f));
+		break;
+
+	case GLUT_KEY_LEFT:
+		body.SetRotation(Vector3(-10.0f, 00.0f, 0.0f));
+		break;
+
+	case  GLUT_KEY_RIGHT:
+		body.SetRotation(Vector3(10.0f, 00.0f, 0.0f));
+		break;
+
+	case  GLUT_KEY_HOME:
+		body.SetRotation(Vector3(0.0f, 00.0f, 10.0f));
+		break;
+
+	case  GLUT_KEY_END:
+		body.SetRotation(Vector3(0.0f, 00.0f, -10.0f));
+		break;
+	}
+}
+
+
 void RenderScene()
 {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -43,7 +74,7 @@ void Update()
 	float x = rotation.i / sin(angle / 2);
 	float y = rotation.j / sin(angle / 2);
 	float z = rotation.k / sin(angle / 2);
-	angle *= 57.2958;
+	angle *= 57.2958f;
 
 	//glScalef(1.0, 1.0f, 1.0f);
 	glRotatef(angle,x,y,z);
@@ -56,15 +87,14 @@ void Update()
 
 	//body.AddForceAtPoint(Vector3(100.0f, 0.0f, 0.0f), Vector3(10.0f, 10.f, 10.0f));
 
-	body.SetRotation(Vector3(0.0f, 0.0f, 10.0f));
-
 	world.Update((float)1 / 60);
 
 	Vector3 position = body.GetPosition();
-	cout << position.X << " " << position.Y << " " << position.Z << "\n";
+	//cout << position.X << " " << position.Y << " " << position.Z << "\n";
 
 	Quaternion orientation = body.GetOrientation();
 //	cout << orientation.r << " " << orientation.i << " " << orientation.j << " " << orientation.k << "\n";
+
 }
 
 void ChangeSize(int width, int height)
@@ -101,6 +131,9 @@ int main(int argc, char** argv)
 	glutReshapeFunc(ChangeSize);
 	glutIdleFunc(Update);
 
+	//Register input
+	glutSpecialFunc(ProcessSpecialKeys);
+
 	body.SetMass(10.0f);
 	Matrix3 intertiaTensor;
 	intertiaTensor.mData[0] = 1.0f * 10/6;
@@ -115,70 +148,8 @@ int main(int argc, char** argv)
 
 	world.AddBody(body);
 
-
 	//enter GLUT event processing cycle
 	glutMainLoop();
 
 	return 0;
-}
-
-void ConsoleStuff()
-{
-	/*
-	Particle a;
-
-	a.SetPosition(Vector3(0, 100, 0));
-	a.SetAcceleration(Vector3(0, -10, 0));
-	a.SetMass(10);
-
-	for (int i = 0; i < 100; ++i)
-	{
-	Vector3 position = a.GetPosition();
-	cout << position.X << " " << position.Y << " " << position.Z << "\n";
-	a.Integrate(0.167f);
-	}
-
-	getchar();*/
-
-	/*cout << "\n BULLET\n\n\n";
-	Projectile a;
-	a.SetType(Projectile::ShotType::PISTOL);
-
-	a.Fire();
-
-	for (int i = 0; i < 100; ++i)
-	{
-	a.Update();
-
-	Vector3 position = a.GetPosition();
-	cout << position.X << " " << position.Y << " " << position.Z << "\n";
-
-	if (a.IsExpired())
-	{
-	break;
-	}
-	}
-
-	cout << "\n CROSSBOW\n\n\n";
-	Projectile b;
-	b.SetType(Projectile::ShotType::CROSSBOW);
-
-	b.Fire();
-
-	for (int i = 0; i < 100; ++i)
-	{
-	b.Update();
-
-	Vector3 position = b.GetPosition();
-	cout << position.X << " " << position.Y << " " << position.Z << "\n";
-
-	if (b.IsExpired())
-	{
-	break;
-	}
-	}
-
-	getchar();*/
-
-	
 }

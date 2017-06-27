@@ -37,11 +37,17 @@
     <Filter Include="Source Files\RigidBodyForceGenerators">
       <UniqueIdentifier>{4ed5b143-e7c6-4036-9c1d-658343efa3e2}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Collision Detection">
+    <Filter Include="Header Files\Broad Phase Collision Detection">
       <UniqueIdentifier>{774bfad7-a412-49da-a90c-99292e4c9d76}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Collision Detection">
+    <Filter Include="Source Files\Broad Phase Collision Detection">
       <UniqueIdentifier>{2d4c001e-44dc-4a3e-aac9-6e9acbfd79fd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Narrow Phase Collision Detection">
+      <UniqueIdentifier>{420e064e-abd8-4d5e-a073-0cac56211a49}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Narrow Phase Collision Detection">
+      <UniqueIdentifier>{65e13042-ba91-4d50-9cef-5afafc4b2b9a}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -139,13 +145,37 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="PotentialContact.h">
-      <Filter>Header Files\Collision Detection</Filter>
+      <Filter>Header Files\Broad Phase Collision Detection</Filter>
     </ClInclude>
     <ClInclude Include="BVHNode.h">
-      <Filter>Header Files\Collision Detection</Filter>
+      <Filter>Header Files\Broad Phase Collision Detection</Filter>
     </ClInclude>
     <ClInclude Include="BoundingSphere.h">
-      <Filter>Header Files\Collision Detection</Filter>
+      <Filter>Header Files\Broad Phase Collision Detection</Filter>
+    </ClInclude>
+    <ClInclude Include="Contact.h">
+      <Filter>Header Files\Narrow Phase Collision Detection</Filter>
+    </ClInclude>
+    <ClInclude Include="Primitive.h">
+      <Filter>Header Files\Narrow Phase Collision Detection</Filter>
+    </ClInclude>
+    <ClInclude Include="CollisionData.h">
+      <Filter>Header Files\Narrow Phase Collision Detection</Filter>
+    </ClInclude>
+    <ClInclude Include="Sphere.h">
+      <Filter>Header Files\Narrow Phase Collision Detection</Filter>
+    </ClInclude>
+    <ClInclude Include="CollisionDetector.h">
+      <Filter>Header Files\Narrow Phase Collision Detection</Filter>
+    </ClInclude>
+    <ClInclude Include="IntersectionTests.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Box.h">
+      <Filter>Header Files\Narrow Phase Collision Detection</Filter>
+    </ClInclude>
+    <ClInclude Include="Plane.h">
+      <Filter>Header Files\Narrow Phase Collision Detection</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -230,14 +260,29 @@
     <ClCompile Include="RigidBodyWorld.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="CollisionData.cpp">
+      <Filter>Source Files\Narrow Phase Collision Detection</Filter>
+    </ClCompile>
+    <ClCompile Include="Contact.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="IntersectionTests.cpp">
+      <Filter>Source Files\Narrow Phase Collision Detection</Filter>
+    </ClCompile>
+    <ClCompile Include="Primitive.cpp">
+      <Filter>Source Files\Narrow Phase Collision Detection</Filter>
+    </ClCompile>
     <ClCompile Include="BoundingSphere.cpp">
-      <Filter>Source Files\Math</Filter>
+      <Filter>Source Files\Narrow Phase Collision Detection</Filter>
+    </ClCompile>
+    <ClCompile Include="CollisionDetector.cpp">
+      <Filter>Source Files\Narrow Phase Collision Detection</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />
     <None Include="BVHNode.inl">
-      <Filter>Source Files\Collision Detection</Filter>
+      <Filter>Source Files\Broad Phase Collision Detection</Filter>
     </None>
   </ItemGroup>
 </Project>

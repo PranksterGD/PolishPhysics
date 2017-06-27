@@ -1,5 +1,6 @@
 #pragma once
 #include "Precision.h"
+#include <cstdint>
 namespace PolishPhysics
 {
 	/**Represents a point in 3 dimensional space. */
@@ -56,6 +57,10 @@ namespace PolishPhysics
 		* @param other - The other vector to be compared against.
 		* @return A boolean - True if the vectors are not equal, false otherwise.*/
 		bool operator!=(const Vector3& other) const;
+
+		Precision operator[](std::uint32_t) const;
+
+		Precision& operator[](std::uint32_t);
 
 		/**Function that negates all the components of the vector. */
 		void Invert();

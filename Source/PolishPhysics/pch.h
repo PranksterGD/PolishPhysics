@@ -47,3 +47,12 @@
 #include "BoundingSphere.h"
 #include "BVHNode.h"
 #include "PotentialContact.h"
+#include "Primitive.h"
+#include "Contact.h"
+#include "CollisionData.h"
+#include "CollisionDetector.h"
+#include "IntersectionTests.h"
+
+#include "Sphere.h"
+#include "Plane.h"
+#include "Box.h"

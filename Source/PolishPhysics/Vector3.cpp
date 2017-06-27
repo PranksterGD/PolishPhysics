@@ -67,6 +67,38 @@ bool Vector3::operator!=(const Vector3& other) const
 	return !(*this == other);
 }
 
+Precision Vector3::operator[](std::uint32_t i) const
+{
+	if (i == 0)
+	{
+		return X;
+	}
+	else if(i == 1)
+	{
+		return Y;
+	}
+	else
+	{
+		return Z;
+	}
+}
+
+Precision& Vector3::operator[](std::uint32_t i)
+{
+	if (i == 0)
+	{
+		return X;
+	}
+	else if (i == 1)
+	{
+		return Y;
+	}
+	else
+	{
+		return Z;
+	}
+}
+
 void Vector3::Invert()
 {
 	X = -X;

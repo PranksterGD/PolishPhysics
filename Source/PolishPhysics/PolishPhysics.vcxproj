@@ -150,7 +150,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="BoundingSphere.h" />
+    <ClInclude Include="Box.h" />
     <ClInclude Include="BVHNode.h" />
+    <ClInclude Include="CollisionData.h" />
+    <ClInclude Include="CollisionDetector.h" />
+    <ClInclude Include="Contact.h" />
+    <ClInclude Include="IntersectionTests.h" />
     <ClInclude Include="Matrix3.h" />
     <ClInclude Include="Matrix4.h" />
     <ClInclude Include="Particle.h" />
@@ -172,8 +177,10 @@
     <ClInclude Include="ParticleStiffSpringForceGenerator.h" />
     <ClInclude Include="ParticleWorld.h" />
     <ClInclude Include="pch.h" />
+    <ClInclude Include="Plane.h" />
     <ClInclude Include="PotentialContact.h" />
     <ClInclude Include="Precision.h" />
+    <ClInclude Include="Primitive.h" />
     <ClInclude Include="Projectile.h" />
     <ClInclude Include="Quaternion.h" />
     <ClInclude Include="RigidBody.h" />
@@ -182,10 +189,15 @@
     <ClInclude Include="RigidBodySpringForceGenerator.h" />
     <ClInclude Include="RigidBodyWorld.h" />
     <ClInclude Include="RigidyBodyGravityForceGenerator.h" />
+    <ClInclude Include="Sphere.h" />
     <ClInclude Include="Vector3.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BoundingSphere.cpp" />
+    <ClCompile Include="CollisionData.cpp" />
+    <ClCompile Include="CollisionDetector.cpp" />
+    <ClCompile Include="Contact.cpp" />
+    <ClCompile Include="IntersectionTests.cpp" />
     <ClCompile Include="Matrix3.cpp" />
     <ClCompile Include="Matrix4.cpp" />
     <ClCompile Include="Particle.cpp" />
@@ -210,6 +222,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="Primitive.cpp" />
     <ClCompile Include="Projectile.cpp" />
     <ClCompile Include="Quaternion.cpp" />
     <ClCompile Include="RigidBodyForceRegistry.cpp" />

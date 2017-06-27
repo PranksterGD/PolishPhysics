@@ -10,7 +10,7 @@ namespace PolishPhysics
 	template<class BoundingVolumeClass>
 	bool BVHNode<BoundingVolumeClass>::Overlaps(const BVHNode<BoundingVolumeClass>& other) const
 	{
-		mVolume.Overlaps(other.mVolume);
+		return mVolume.Overlaps(other.mVolume);
 	}
 
 	template<class BoundingVolumeClass>
@@ -24,7 +24,7 @@ namespace PolishPhysics
 		}
 		else
 		{
-			contactsGenerated = mchildren[0]->GetPotentialContactsWith(mchildren[1], contacts, limit);
+			contactsGenerated = mChildren[0]->GetPotentialContactsWith(mChildren[1], contacts, limit);
 		}
 
 		return contactsGenerated;
@@ -51,11 +51,11 @@ namespace PolishPhysics
 		//If both are branches, we descend down the one that is bigger.
 		if (other.IsLeaf() || (!IsLeaf() && mVolume.GetSize() >= other.mVolume.GetSize()))
 		{
-			std::uint32_t contactsGenerated = mchildren[0]->GetPotentialContactsWith(other, contacts, limit);
+			std::uint32_t contactsGenerated = mChildren[0]->GetPotentialContactsWith(other, contacts, limit);
 
 			if (limit > contactsGenerated)
 			{
-				return contactsGenerated + mchildren[1]->GetPotentialContactsWith(other, contacts + contactsGenerated, limit - contactsGenerated);
+				return contactsGenerated + mChildren[1]->GetPotentialContactsWith(other, contacts + contactsGenerated, limit - contactsGenerated);
 			}
 			else
 			{
@@ -87,8 +87,8 @@ namespace PolishPhysics
 		if (IsLeaf())
 		{
 			//Child one is a copy of us.
-			mchildren[0] = new BVHNode<BoundingVolumeClass>(this, mVolume, mBody);
-			mchildren[1] = new BVHNode<BoundingVolumeClass>(this, newVolume, newBody);
+			mChildren[0] = new BVHNode<BoundingVolumeClass>(this, mVolume, mBody);
+			mChildren[1] = new BVHNode<BoundingVolumeClass>(this, newVolume, newBody);
 
 			mBody = nullptr;
 
@@ -97,13 +97,13 @@ namespace PolishPhysics
 		//Otherwise, work out which child gets the inserted body. Give it to whichever would grow the least
 		else
 		{
-			if (mchildren[0]->mVolume.GetGrowth(newVolume) < mchildren[1]->mVolume.GetGrowth(newVolume))
+			if (mChildren[0]->mVolume.GetGrowth(newVolume) < mChildren[1]->mVolume.GetGrowth(newVolume))
 			{
-				mchildren[0]->Insert(newBody, newVolume);
+				mChildren[0]->Insert(newBody, newVolume);
 			}
 			else
 			{
-				mchildren[1]->Insert(newBody, newVolume);
+				mChildren[1]->Insert(newBody, newVolume);
 			}
 		}
 	}
@@ -119,26 +119,26 @@ namespace PolishPhysics
 
 			BVHNode<BoundingVolumeClass>* sibling;
 			
-			if (mParent->mchildren[0] == this)
+			if (mParent->mChildren[0] == this)
 			{
-				sibling = mParent->mchildren[1];
+				sibling = mParent->mChildren[1];
 			}
 			else
 			{
-				sibling = mParent->mchildren[0];
+				sibling = mParent->mChildren[0];
 			}
 
 			//Write its data to the parent.
 			mParent->mVolume = sibling->mVolume;
 			mParent->mBody = sibling->mBody;
-			mParent->mchildren[0] = sibling->mchildren[0];
-			mParent->mchildren[1] = sibling->mchildren[1];
+			mParent->mChildren[0] = sibling->mChildren[0];
+			mParent->mChildren[1] = sibling->mChildren[1];
 
 			//Delete the sibling
 			sibling->mParent = nullptr;
 			sibling->mBody = nullptr;
-			sibling->mchildren[0] = nullptr;
-			sibling->mchildren[1] = nullptr;
+			sibling->mChildren[0] = nullptr;
+			sibling->mChildren[1] = nullptr;
 			delete sibling;
 
 			//Recalculate the parent's bounding volume.
@@ -146,17 +146,35 @@ namespace PolishPhysics
 		}
 
 		//Delete the children.
-		if (mchildren[0] != nullptr)
+		if (mChildren[0] != nullptr)
 		{
-			mchildren[0]->mParent = nullptr;
-			delete mchildren[0];
+			mChildren[0]->mParent = nullptr;
+			delete mChildren[0];
 		}
 
-		if (mchildren[1] != nullptr)
+		if (mChildren[1] != nullptr)
 		{
-			mchildren[1]->mParent = nullptr;
-			delete mchildren[1];
+			mChildren[1]->mParent = nullptr;
+			delete mChildren[1];
 		}
+	}
+
+	template<class BoundingVolumeClass>
+	void BVHNode<BoundingVolumeClass>::RecalculateBoundingVolume(bool recurse /* = true */)
+	{
+		if (!IsLeaf())
+		{
+			// Use the bounding volume combining constructor.
+			mVolume = BoundingVolumeClass(mChildren[0]->mVolume, mChildren[1]->mVolume);
+
+			// Recurse up the tree
+			if (mParent != nullptr)
+			{
+				mParent->RecalculateBoundingVolume(true);
+			}
+		}
+
+
 	}
 }
 

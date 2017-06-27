@@ -263,3 +263,8 @@ void RigidBody::CalculateDerviedData()
 
 	TransformIntertiaTensor(mInverseInertiaTensorWorld, mOrientation, mInverseInertiaTensor, mTransformMatrix);
 }
+
+Matrix4 RigidBody::GetTransform() const
+{
+	return mTransformMatrix;
+}

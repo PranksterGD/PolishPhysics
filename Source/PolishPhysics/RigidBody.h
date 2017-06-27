@@ -81,6 +81,8 @@ namespace PolishPhysics
 
 		void SetAcceleration(const Vector3& acceleration);
 
+		Matrix4 GetTransform() const;
+
 
 	protected:
 

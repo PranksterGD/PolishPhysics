@@ -12,7 +12,7 @@ namespace PolishPhysics
 		private:
 
 		// Holds the child nodes of this node
-		BVHNode* mchildren[2];
+		BVHNode* mChildren[2];
 
 		//Holds a single bounding volume encompassing all the descendants of this node.
 		BoundingVolumeClass mVolume;
@@ -23,15 +23,15 @@ namespace PolishPhysics
 		//Holds the parent up the hierarchy.
 		BVHNode* mParent;
 
-		BVHNode(BVHNode *parent, const BoundingVolumeClass &volume, RigidBody* body = nullptr):
+	public:
+
+		BVHNode(BVHNode *parent, const BoundingVolumeClass &volume, RigidBody* body = nullptr) :
 			mParent(parent), mVolume(volume), mBody(body)
 		{
-			mchildren[0] = mchildren[1] = nullptr;
+			mChildren[0] = mChildren[1] = nullptr;
 		}
 
 		~BVHNode();
-
-	public:
 
 		/**Checks if this node is at the bottom of the hierarchy. */
 		bool IsLeaf() const;

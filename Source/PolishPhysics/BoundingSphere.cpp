@@ -66,3 +66,8 @@ Precision BoundingSphere::GetGrowth(const BoundingSphere &other) const
 	// area of the sphere.
 	return newSphere.mRadius*newSphere.mRadius - mRadius*mRadius;
 }
+
+void BoundingSphere::SetCenter(Vector3 center)
+{
+	mCenter = center;
+}

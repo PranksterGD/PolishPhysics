@@ -32,5 +32,7 @@ namespace PolishPhysics
 		the given bounding sphere.
 		* @param other- The other bounding sphere to incorporate. */
 		Precision GetGrowth(const BoundingSphere &other) const;
+
+		void SetCenter(Vector3 center);
 	};
 }
