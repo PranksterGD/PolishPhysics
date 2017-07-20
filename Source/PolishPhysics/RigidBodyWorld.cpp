@@ -28,7 +28,7 @@ void RigidBodyWorld::StartFrame()
 	for (auto it = mBodies.begin(); it != mBodies.end(); ++it)
 	{
 		(*it)->ClearAccumulators();
-		(*it)->CalculateDerviedData();
+		(*it)->CalculateDerivedData();
 	}
 }
 

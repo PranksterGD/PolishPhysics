@@ -26,6 +26,8 @@ CollisionBox otherBox;
 CollisionSphere csphere;
 CollisionSphere otherCsphere;
 
+CollisionPlane plane;
+
 BoundingSphere OtherSphere(Vector3(2.0f, 5.0f, -10.0f), 1.414f);
 BVHNode<BoundingSphere> OtherVolume(nullptr, OtherSphere, &otherBody);
 
@@ -78,27 +80,27 @@ void ProcessSpecialKeys(int key, int x, int y)
 	switch (key)
 	{
 	case  GLUT_KEY_UP:
-		otherBody.SetVelocity(Vector3(0.0f, 0.5f, 0.0f));
+		otherBody.SetVelocity(Vector3(0.0f, 2.0f, 0.0f));
 		break;
 
 	case GLUT_KEY_DOWN:
-		otherBody.SetVelocity(Vector3(0.0f, -0.5f, 0.0f));
+		otherBody.SetVelocity(Vector3(0.0f, -2.0f, 0.0f));
 		break;
 
 	case GLUT_KEY_LEFT:
-		otherBody.SetVelocity(Vector3(-0.5f, 0.0f, 0.0f));
+		otherBody.SetVelocity(Vector3(-2.0f, 0.0f, 0.0f));
 		break;
 
 	case  GLUT_KEY_RIGHT:
-		otherBody.SetVelocity(Vector3(0.5f, 0.0f, 0.0f));
+		otherBody.SetVelocity(Vector3(2.0f, 0.0f, 0.0f));
 		break;
 
 	case  GLUT_KEY_HOME:
-		otherBody.SetVelocity(Vector3(0.0f, 0.0f, 0.5f));
+		otherBody.SetVelocity(Vector3(0.0f, 0.0f, 2.0f));
 		break;
 
 	case  GLUT_KEY_END:
-		otherBody.SetVelocity(Vector3(0.0f, 0.0f, -0.5f));
+		otherBody.SetVelocity(Vector3(0.0f, 0.0f, -2.0f));
 		break;
 	}
 }
@@ -119,7 +121,13 @@ void Update()
 
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-	if (CollisionDetector::SphereAndSphere(csphere, otherCsphere, &collisionData) > 0)
+	glBegin(GL_LINE_STRIP);
+	glVertex3f(0.0f, 0.0f, 0.0f);  // V0
+	glVertex3f(2.0, 5.0f, 3.0f);  // V1
+//	glVertex3f(50.0f, 100.0f, 0.0f);  // V2
+	glEnd();
+
+	if (CollisionDetector::SphereAndHalfSpace(otherCsphere, plane, &collisionData) > 0)
 	{
 		glColor3f(1, 0, 0);
 	}
@@ -132,11 +140,11 @@ void Update()
 		glColor3f(1, 1, 1);
 	}
 
-	glPushMatrix();
-	glTranslatef(body.GetPosition().X, body.GetPosition().Y, body.GetPosition().Z);
-	glutSolidSphere(1,100,100);
-//	glutSolidCube(1);
-	glPopMatrix();
+	//glPushMatrix();
+	//glTranslatef(body.GetPosition().X, body.GetPosition().Y, body.GetPosition().Z);
+	//glutSolidSphere(1,100,100);
+	//glutSolidCube(1);
+	//glPopMatrix();
 
 	glPushMatrix();
 	glTranslatef(otherBody.GetPosition().X, otherBody.GetPosition().Y, otherBody.GetPosition().Z);
@@ -236,7 +244,7 @@ int main(int argc, char** argv)
 
 	otherBody.SetMass(10.0f);
 	otherBody.SetIntertiaTensor(intertiaTensor);
-	otherBody.SetPosition(Vector3(2.0, 5.0f, -10.0f));
+	otherBody.SetPosition(Vector3(2.0, 3.0f, -10.0f));
 	world.AddBody(otherBody);
 
 	otherBox.halfSize = Vector3(5, 5, 5);
@@ -244,6 +252,9 @@ int main(int argc, char** argv)
 
 	otherCsphere.mRadius = 1.0f;
 	otherCsphere.mBody = &otherBody;
+
+	plane.mNormal = Vector3(2.0, 5.0f, 3.0f);
+	plane.mOffset = 0.0f;
 
 	collisionData.mContacts = contacts;
 	collisionData.mFirstContact = contacts;

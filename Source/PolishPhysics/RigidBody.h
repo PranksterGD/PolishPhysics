@@ -11,6 +11,8 @@ namespace PolishPhysics
 	{
 		friend class RigidBodyWorld;
 
+		friend class Contact;
+
 	public:
 
 		RigidBody(Precision gravity = 10.0f);
@@ -49,6 +51,8 @@ namespace PolishPhysics
 
 		void SetInverseMass(Precision inverseMass);
 
+		void SetInverseIntertiaTensor(const Matrix3& tensor);
+
 		Precision GetMass() const;
 
 		Precision GetInverseMass() const;
@@ -83,6 +87,28 @@ namespace PolishPhysics
 
 		Matrix4 GetTransform() const;
 
+		void GetLastFrameAcceleration(Vector3 *linearAcceleration) const;
+
+		Vector3 GetLastFrameAcceleration() const;
+
+		Matrix3 GetInverseInertiaTensorWorld() const;
+
+		bool GetAwake() const;
+
+		void SetAwake(bool wake);
+
+		void AddVelocity(const Vector3& velocity);
+
+		void AddRotation(const Vector3& rotation);
+
+		void GetGLTransform(float matrix[16]);
+
+		void ClearAccumulators();
+
+		void Integrate(Precision deltaTime);
+
+		/**Calculates internal data from state data. */
+		void CalculateDerivedData();
 
 	protected:
 
@@ -110,6 +136,9 @@ namespace PolishPhysics
 		/**Holds the linear acceleration of the rigid body in world space. */
 		Vector3 mAcceleration;
 
+		/**Holds the acceleration of the rigid body in the previous frame. */
+		Vector3 mLastFrameAcceleration;
+
 		Precision mGravity;
 
 		/**Holds a transform matrix for converting body space into world space.. */
@@ -122,14 +151,10 @@ namespace PolishPhysics
 		Matrix3 mInverseInertiaTensorWorld;
 
 		Vector3 mAccumulatedForce;
+
 		Vector3 mAccumulatedTorque;
 
-		void ClearAccumulators();
-
-		void Integrate(Precision deltaTime);
-
-		/**Calculates internal data from state data. */
-		void CalculateDerviedData();
+		bool mIsAwake;
 
 		void CalulateTransformMatrix(Matrix4& transformMatrix, const Vector3& position, const Quaternion& orientation);
 

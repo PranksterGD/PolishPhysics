@@ -49,18 +49,30 @@
     <Filter Include="Source Files\Narrow Phase Collision Detection">
       <UniqueIdentifier>{65e13042-ba91-4d50-9cef-5afafc4b2b9a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\ParticleCollisionResolution">
+      <UniqueIdentifier>{76a43ba8-3e2b-4cff-88b9-6b15c344f570}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\ParticleWorld">
+      <UniqueIdentifier>{9c0c1186-1c0f-47d5-ac3f-30be9d3f131f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\RigidBodyWorld">
+      <UniqueIdentifier>{c1be13a9-d47a-4de1-8961-9bfdb11fc55b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ParticleCollisionResolution">
+      <UniqueIdentifier>{40e8bf69-d8d0-409d-84f0-2b9a6db9cbe8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ParticleWorld">
+      <UniqueIdentifier>{e118a516-4fd0-4ef0-9723-c187a5912731}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\RigidBodyWorld">
+      <UniqueIdentifier>{6f645526-fc8f-4c07-8ab4-16c5e147014e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\RigidBodyCollisionResolution">
+      <UniqueIdentifier>{f1db6ee7-49d4-4e58-affa-52ad2f5e458c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Precision.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Particle.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="pch.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Projectile.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="ParticleDragForceGenerator.h">
@@ -93,12 +105,6 @@
     <ClInclude Include="ParticleStiffSpringForceGenerator.h">
       <Filter>Header Files\ParticleForceGenerators</Filter>
     </ClInclude>
-    <ClInclude Include="ParticleContact.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ParticleContactResolver.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="ParticleContactGenerator.h">
       <Filter>Header Files\ContactGenerators</Filter>
     </ClInclude>
@@ -110,9 +116,6 @@
     </ClInclude>
     <ClInclude Include="ParticleRod.h">
       <Filter>Header Files\ContactGenerators</Filter>
-    </ClInclude>
-    <ClInclude Include="ParticleWorld.h">
-      <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Vector3.h">
       <Filter>Header Files\Math</Filter>
@@ -126,9 +129,6 @@
     <ClInclude Include="Quaternion.h">
       <Filter>Header Files\Math</Filter>
     </ClInclude>
-    <ClInclude Include="RigidBody.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="RigidBodyForceGenerator.h">
       <Filter>Header Files\RigidBodyForceGenerators</Filter>
     </ClInclude>
@@ -141,9 +141,6 @@
     <ClInclude Include="RigidBodyForceRegistry.h">
       <Filter>Header Files\RigidBodyForceGenerators</Filter>
     </ClInclude>
-    <ClInclude Include="RigidBodyWorld.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="PotentialContact.h">
       <Filter>Header Files\Broad Phase Collision Detection</Filter>
     </ClInclude>
@@ -152,9 +149,6 @@
     </ClInclude>
     <ClInclude Include="BoundingSphere.h">
       <Filter>Header Files\Broad Phase Collision Detection</Filter>
-    </ClInclude>
-    <ClInclude Include="Contact.h">
-      <Filter>Header Files\Narrow Phase Collision Detection</Filter>
     </ClInclude>
     <ClInclude Include="Primitive.h">
       <Filter>Header Files\Narrow Phase Collision Detection</Filter>
@@ -168,24 +162,51 @@
     <ClInclude Include="CollisionDetector.h">
       <Filter>Header Files\Narrow Phase Collision Detection</Filter>
     </ClInclude>
-    <ClInclude Include="IntersectionTests.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Box.h">
       <Filter>Header Files\Narrow Phase Collision Detection</Filter>
     </ClInclude>
     <ClInclude Include="Plane.h">
       <Filter>Header Files\Narrow Phase Collision Detection</Filter>
     </ClInclude>
+    <ClInclude Include="ParticleContact.h">
+      <Filter>Header Files\ParticleCollisionResolution</Filter>
+    </ClInclude>
+    <ClInclude Include="ParticleContactResolver.h">
+      <Filter>Header Files\ParticleCollisionResolution</Filter>
+    </ClInclude>
+    <ClInclude Include="Particle.h">
+      <Filter>Header Files\ParticleWorld</Filter>
+    </ClInclude>
+    <ClInclude Include="ParticleWorld.h">
+      <Filter>Header Files\ParticleWorld</Filter>
+    </ClInclude>
+    <ClInclude Include="Precision.h">
+      <Filter>Header Files\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="IntersectionTests.h">
+      <Filter>Header Files\Narrow Phase Collision Detection</Filter>
+    </ClInclude>
+    <ClInclude Include="RigidBody.h">
+      <Filter>Header Files\RigidBodyWorld</Filter>
+    </ClInclude>
+    <ClInclude Include="RigidBodyWorld.h">
+      <Filter>Header Files\RigidBodyWorld</Filter>
+    </ClInclude>
+    <ClInclude Include="Projectile.h">
+      <Filter>Header Files\ParticleWorld</Filter>
+    </ClInclude>
+    <ClInclude Include="Contact.h">
+      <Filter>Header Files\RigidBodyCollisionResolution</Filter>
+    </ClInclude>
+    <ClInclude Include="ContactResolver.h">
+      <Filter>Header Files\RigidBodyCollisionResolution</Filter>
+    </ClInclude>
+    <ClInclude Include="ProjectPolish.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Particle.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Projectile.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="ParticleDragForceGenerator.cpp">
@@ -215,12 +236,6 @@
     <ClCompile Include="ParticleStiffSpringForceGenerator.cpp">
       <Filter>Source Files\ForceGenerators</Filter>
     </ClCompile>
-    <ClCompile Include="ParticleContact.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ParticleContactResolver.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="ParticleLink.cpp">
       <Filter>Source Files\ContactGenerators</Filter>
     </ClCompile>
@@ -248,23 +263,11 @@
     <ClCompile Include="RigidyBodySpringForceGenerator.cpp">
       <Filter>Source Files\RigidBodyForceGenerators</Filter>
     </ClCompile>
-    <ClCompile Include="RigidyBody.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ParticleWorld.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="RigidBodyForceRegistry.cpp">
       <Filter>Source Files\RigidBodyForceGenerators</Filter>
     </ClCompile>
-    <ClCompile Include="RigidBodyWorld.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="CollisionData.cpp">
       <Filter>Source Files\Narrow Phase Collision Detection</Filter>
-    </ClCompile>
-    <ClCompile Include="Contact.cpp">
-      <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="IntersectionTests.cpp">
       <Filter>Source Files\Narrow Phase Collision Detection</Filter>
@@ -277,6 +280,33 @@
     </ClCompile>
     <ClCompile Include="CollisionDetector.cpp">
       <Filter>Source Files\Narrow Phase Collision Detection</Filter>
+    </ClCompile>
+    <ClCompile Include="ParticleContact.cpp">
+      <Filter>Source Files\ParticleCollisionResolution</Filter>
+    </ClCompile>
+    <ClCompile Include="ParticleContactResolver.cpp">
+      <Filter>Source Files\ParticleCollisionResolution</Filter>
+    </ClCompile>
+    <ClCompile Include="ParticleWorld.cpp">
+      <Filter>Source Files\ParticleWorld</Filter>
+    </ClCompile>
+    <ClCompile Include="Particle.cpp">
+      <Filter>Source Files\ParticleWorld</Filter>
+    </ClCompile>
+    <ClCompile Include="Projectile.cpp">
+      <Filter>Source Files\ParticleWorld</Filter>
+    </ClCompile>
+    <ClCompile Include="RigidyBody.cpp">
+      <Filter>Source Files\RigidBodyWorld</Filter>
+    </ClCompile>
+    <ClCompile Include="RigidBodyWorld.cpp">
+      <Filter>Source Files\RigidBodyWorld</Filter>
+    </ClCompile>
+    <ClCompile Include="Contact.cpp">
+      <Filter>Source Files\RigidBodyWorld</Filter>
+    </ClCompile>
+    <ClCompile Include="ContactResolver.cpp">
+      <Filter>Source Files\ParticleCollisionResolution</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -250,12 +250,12 @@ void RigidBody::Integrate(Precision deltaTime)
 	mPosition.AddScaledVector(mVelocity, deltaTime);
 	mOrientation.AddScaledVector(mRotation, deltaTime);
 
-	CalculateDerviedData();
+	CalculateDerivedData();
 
 	ClearAccumulators();
 }
 
-void RigidBody::CalculateDerviedData()
+void RigidBody::CalculateDerivedData()
 {
 	mOrientation.Normalize();
 
@@ -267,4 +267,67 @@ void RigidBody::CalculateDerviedData()
 Matrix4 RigidBody::GetTransform() const
 {
 	return mTransformMatrix;
+}
+
+void RigidBody::GetLastFrameAcceleration(Vector3 *linearAcceleration) const
+{
+	*linearAcceleration = mLastFrameAcceleration;
+}
+
+Vector3 RigidBody::GetLastFrameAcceleration() const
+{
+	return mLastFrameAcceleration;
+}
+
+bool RigidBody::GetAwake() const
+{
+	return mIsAwake;
+}
+
+void RigidBody::SetAwake(bool wake)
+{
+	mIsAwake = wake;
+}
+
+Matrix3 RigidBody::GetInverseInertiaTensorWorld() const
+{
+	return mInverseInertiaTensorWorld;
+}
+
+void RigidBody::AddVelocity(const Vector3& velocity)
+{
+	mVelocity += velocity;
+}
+
+void RigidBody::AddRotation(const Vector3& rotation)
+{
+	mRotation += rotation;
+}
+
+void RigidBody::GetGLTransform(float matrix[16])
+{
+	matrix[0] = (float)mTransformMatrix.mData[0];
+	matrix[1] = (float)mTransformMatrix.mData[4];
+	matrix[2] = (float)mTransformMatrix.mData[8];
+	matrix[3] = 0;
+
+	matrix[4] = (float)mTransformMatrix.mData[1];
+	matrix[5] = (float)mTransformMatrix.mData[5];
+	matrix[6] = (float)mTransformMatrix.mData[9];
+	matrix[7] = 0;
+
+	matrix[8] = (float)mTransformMatrix.mData[2];
+	matrix[9] = (float)mTransformMatrix.mData[6];
+	matrix[10] = (float)mTransformMatrix.mData[10];
+	matrix[11] = 0;
+
+	matrix[12] = (float)mTransformMatrix.mData[3];
+	matrix[13] = (float)mTransformMatrix.mData[7];
+	matrix[14] = (float)mTransformMatrix.mData[11];
+	matrix[15] = 1;
+}
+
+void RigidBody::SetInverseIntertiaTensor(const Matrix3& tensor)
+{
+	mInverseInertiaTensor = tensor;
 }

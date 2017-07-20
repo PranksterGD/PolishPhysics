@@ -56,3 +56,6 @@
 #include "Sphere.h"
 #include "Plane.h"
 #include "Box.h"
+
+//Collision Resolution
+#include "ContactResolver.h"

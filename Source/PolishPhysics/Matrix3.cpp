@@ -28,6 +28,15 @@ Vector3 Matrix3::Transform(const Vector3& vector) const
 	return (*this) * vector;
 }
 
+Vector3 Matrix3::TransformTranspose(const Vector3& vector) const
+{
+	return Vector3(
+		vector.X * mData[0] + vector.Y * mData[3] + vector.Z * mData[6],
+		vector.X * mData[1] + vector.Y * mData[4] + vector.Z * mData[7],
+		vector.X * mData[2] + vector.Y * mData[5] + vector.Z * mData[8]
+	);
+}
+
 Matrix3 Matrix3::operator*(const Matrix3& other) const
 {
 	return Matrix3(
@@ -149,4 +158,28 @@ void Matrix3::SetOrientation(const Quaternion& quaternion)
 	mData[6] = 2 * quaternion.i * quaternion.k + 2 * quaternion.j * quaternion.r;
 	mData[7] = 2 * quaternion.j * quaternion.k - 2 * quaternion.i * quaternion.r;
 	mData[8] = 1 - (2 * quaternion.i * quaternion.i + 2 * quaternion.j * quaternion.j);
+}
+
+void Matrix3::SetComponentsFromVectors(const Vector3& one, const Vector3& two, const Vector3& three)
+{
+	mData[0] = one.X;
+	mData[1] = two.X;
+	mData[2] = three.X;
+	mData[3] = one.Y;
+	mData[4] = two.Y;
+	mData[5] = three.Y;
+	mData[6] = one.Z;
+	mData[7] = two.Z;
+	mData[8] = three.Z;
+}
+
+void Matrix3::SetInertiaTensorCoeffs(Precision ix, Precision iy, Precision iz, Precision ixy /* = 0 */, Precision ixz /* = 0 */, Precision iyz /* = 0 */)
+{
+	
+		mData[0] = ix;
+		mData[1] = mData[3] = -ixy;
+		mData[2] = mData[6] = -ixz;
+		mData[4] = iy;
+		mData[5] = mData[7] = -iyz;
+		mData[8] = iz;
 }

@@ -166,7 +166,9 @@ uint32_t CollisionDetector::SphereAndHalfSpace(const CollisionSphere &sphere, co
 
 	Vector3 position = sphere.GetAxis(3);
 
-	Precision distance = plane.mNormal.ScalarProduct(position) - sphere.mRadius - plane.mOffset;
+	Precision distance = plane.mNormal.ScalarProduct(position);
+	distance -= sphere.mRadius;
+	distance -=plane.mOffset;
 
 	//Early out if the sphere's position is outside the plane.
 	if (distance >= 0.0f)
@@ -201,8 +203,6 @@ uint32_t CollisionDetector::SphereAndTruePlane(const CollisionSphere &sphere, co
 	{
 		return 0;
 	}
-
-	//Really glad I found your stream, and I'm happy to say that I can play my small part in helping make your dream a reality <3
 
 	//Check which side of the plane we're on.
 	Vector3 normal = plane.mNormal;

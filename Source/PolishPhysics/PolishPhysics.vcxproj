@@ -155,6 +155,7 @@
     <ClInclude Include="CollisionData.h" />
     <ClInclude Include="CollisionDetector.h" />
     <ClInclude Include="Contact.h" />
+    <ClInclude Include="ContactResolver.h" />
     <ClInclude Include="IntersectionTests.h" />
     <ClInclude Include="Matrix3.h" />
     <ClInclude Include="Matrix4.h" />
@@ -182,6 +183,7 @@
     <ClInclude Include="Precision.h" />
     <ClInclude Include="Primitive.h" />
     <ClInclude Include="Projectile.h" />
+    <ClInclude Include="ProjectPolish.h" />
     <ClInclude Include="Quaternion.h" />
     <ClInclude Include="RigidBody.h" />
     <ClInclude Include="RigidBodyForceGenerator.h" />
@@ -197,6 +199,7 @@
     <ClCompile Include="CollisionData.cpp" />
     <ClCompile Include="CollisionDetector.cpp" />
     <ClCompile Include="Contact.cpp" />
+    <ClCompile Include="ContactResolver.cpp" />
     <ClCompile Include="IntersectionTests.cpp" />
     <ClCompile Include="Matrix3.cpp" />
     <ClCompile Include="Matrix4.cpp" />

@@ -27,6 +27,8 @@ namespace PolishPhysics
 		* @return - A vector that is the given vector after transformation.*/
 		Vector3 Transform(const Vector3& vector)const;
 
+		Vector3 TransformTranspose(const Vector3& vector) const;
+
 		/**Returns a matrix that is result of the multiplication of the matrix with the matrix passed in.
 		* @param other- The other matrix in the multiplication
 		* @return - The matrix that is the result of the multiplication.*/
@@ -54,5 +56,23 @@ namespace PolishPhysics
 		/**Sets this matrix to be the rotation matrix corresponding to the given quaternion.
 		* @Param quaternion - The quaternion whose rotation is to be used.*/
 		void SetOrientation(const Quaternion& quaternion);
+
+		void SetComponentsFromVectors(const Vector3& one, const Vector3& two, const Vector3& three);
+
+		void SetInertiaTensorCoeffs(Precision ix, Precision iy, Precision iz,
+			Precision ixy = 0, Precision ixz = 0, Precision iyz = 0);
+
+			void SetDiagonal(Precision a, Precision b, Precision c)
+		{
+			SetInertiaTensorCoeffs(a, b, c);
+		}
+
+			void SetBlockInertiaTensor(const Vector3 &halfSizes, Precision mass)
+			{
+				Vector3 squares = halfSizes.ComponentProduct(halfSizes);
+				SetInertiaTensorCoeffs(0.3f*mass*(squares.Y + squares.Z),
+					0.3f*mass*(squares.X + squares.Z),
+					0.3f*mass*(squares.X + squares.Y));
+			}
 	};
 }
